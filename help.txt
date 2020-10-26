@@ -1,0 +1,25 @@
+Trabalho de distribuídos
+
+Servidor:
+1) criação do socket com parametros:
+	socket.AF_INET - ipv4
+	socket.SOCK_STREAM -tcp 
+
+2) Configuração do arquivo sockfd:
+	socket.SOL_SOCKET - usado pq a operação não depende do protocolo
+	socket.SO_REUSEADDR - reutilizar porta que ficou presa
+
+3) Bind: 0.0.0.0
+	Associa o socket com o endereço local e a porta
+
+4) Listen:
+	Fica ouvindo na porta 
+
+5) Thread:
+	Como vários usuários podem tentar conectar, criei threads
+	pra lidar com isso
+	o socket.accept() retorna o c -> dados
+				    a -> ip, porta
+
+	se não tiver dados, o cliente foi desconectado e a conexão é
+	removida
